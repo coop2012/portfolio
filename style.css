@@ -1,0 +1,302 @@
+
+* {
+  transition: background-color 0.4s, color 0.4s, box-shadow 0.3s;
+  box-sizing: border-box;
+}
+
+
+
+
+
+:root {
+  --primary-color: #79aef9;      /* lighter accent in dark mode */
+  --bg-color: #121212;           /* deep dark background */
+  --text-color: #e5e5e5;         /* light text */
+  --card-bg: #1f1f1f;             /* dark card background */
+  --accent-bg: #242424;           /* slightly lighter/darker regions */
+  --border-color: rgba(255,255,255,0.1);
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+
+
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s, transform 0.6s;
+}
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body {
+  
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Poppins", "Inter", sans-serif;
+  line-height: 1.2rem;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+header.intro {
+    text-align: center;
+    padding: 4rem 1rem;
+    color: var(--text-color);
+    border-radius: 0 0 2rem 2rem;
+}
+
+.highlight {
+    color: var(--primary-color);
+}
+
+.socials {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center; /* centers horizontally */
+    flex-wrap: wrap;          /* allows wrapping on small screens */
+    gap: 0.5rem;              /* adds spacing between buttons */
+    
+}
+
+button,
+.socials-button {
+  background: var(--primary-color);
+  color:  var(--bg-color);
+  border: none;
+  border-radius: 30px;
+  padding: 0.7rem 1.3rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover,
+.socials-button:hover {
+  color: var(--primary-color);
+  fill: var(--primary-color);
+  background-color: var(--bg-color);
+
+}
+
+.socials-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 2rem;
+  background-color: var(--primary-color);
+  color: var(--bg-color); /* initial text + SVG color */
+  transition: all 0.3s ease;
+}
+
+.socials-button:hover {
+  background-color: var(--bg-color);  /* change button background */
+  color: var(--primary-color);        /* changes text AND SVG color */
+  
+}
+
+
+
+
+
+
+
+.socials-button svg {
+    
+    width: 24px;
+    height: 24px;
+}
+
+
+
+/* Fix for Handshake icon size */
+.socials-button[href*="handshake"] svg {
+  width: 70px;  /* adjust as needed — try between 60–90px */
+  height: auto;
+}
+
+
+
+
+
+main {
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 3rem;
+    
+}
+
+
+.project {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px var(--shadow-color);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  
+}
+
+
+.project:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px var(--shadow-color);
+}
+
+.project button {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 30px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.project button:hover {
+    background-color: var(--card-bg);
+    color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+.project-img {
+    width: 100%;
+    height: 200px; /* same height for all thumbnails */
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+
+.tech-list {
+    list-style: none;
+    
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tech-list li {
+    background: var(--bg-color);
+    border: 2px solid var(--border-color);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 400;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+
+
+.tech-list li:hover {
+    background: var(--border-color);
+    color: var(--text-color);
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+
+
+.tech-icon {
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3%;
+    margin-top: 2rem;
+    align-items: stretch; /* make all cards in a row the same height */
+}
+
+nav {
+  position: sticky;
+  top: 10px;
+  color: var(--text-color);
+  background-color: #ffffff4d;
+  backdrop-filter: blur(10px);
+  padding: 1rem 0;
+  border-radius: 30px;
+  
+  box-shadow: 0 2px 8px var(--shadow-color);
+  text-align: center;
+  z-index: 1000;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  gap: 2rem;
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--text-color);
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: var(--primary-color);
+}
+
+
+.footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+nav button {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin-left: 1rem;
+}
+
+.interests {
+    margin-top: 60px;/* pushes it down below the section above */
+    padding-top: 2rem; /* optional: adds inner space inside the section */
+}
+
+.dark-icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    fill: var(--bg-color);
+}
