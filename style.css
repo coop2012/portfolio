@@ -1,7 +1,7 @@
 
 * {
   transition: background-color 0.4s, color 0.4s, box-shadow 0.3s;
-  box-sizing: border-box;
+
 }
 
 
@@ -23,7 +23,19 @@
   }
 }
 
+@media (max-width: 600px) {
+    .interests {
+        gap: 1rem;
+        
+        margin: 1.5rem 0;      /* slightly smaller margin on mobile */
+    }
 
+    .projects {
+        grid-template-columns: 1fr; 
+        gap: 1rem;
+        margin: 1.5rem 0;      /* same as interests for alignment */
+    }
+}
 
 
 
@@ -224,13 +236,13 @@ section {
     vertical-align: middle;
     margin-right: 8px;
 }
-
 .projects {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 3%;
-    margin-top: 2rem;
-    align-items: stretch; /* make all cards in a row the same height */
+    gap: 1.5rem;              /* same gap as interests */
+    margin: 2rem 0;            /* consistent with interests */
+    align-items: stretch;
+    padding: 0;                /* keep grid flush with page edges */
 }
 
 nav {
@@ -289,10 +301,17 @@ nav button {
     margin-left: 1rem;
 }
 
+/* --- Interests Section --- */
 .interests {
-    margin-top: 60px;/* pushes it down below the section above */
-    padding-top: 2rem; /* optional: adds inner space inside the section */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;             /* match grid gap in projects */
+    margin: 2rem 0;           /* same top/bottom spacing as projects */
+             /* internal spacing */
+    border-radius: 1rem;
 }
+
+
 
 .dark-icon {
     width: 24px;
